@@ -11,6 +11,7 @@ const cookieParser = require("cookie-parser");
 
 // Import routes
 const authRoutes = require("./routes/authRoutes");
+const todoRoutes = require("./routes/todoRoutes");
 
 // Connect app to mongoDB using mongoose
 const connectDB = async () => {
@@ -30,6 +31,7 @@ app.use(cookieParser());
 
 // Use the routes
 app.use("/api/auth", authRoutes);
+app.use("/api/todos", todoRoutes);
 
 // Call the function to connect to mongoDB
 connectDB();
