@@ -7,6 +7,7 @@ require("dotenv").config();
 const app = express();
 const port = process.env.PORT;
 const mongo_uri = process.env.MONGO_URI;
+const cookieParser = require("cookie-parser");
 
 // Import routes
 const authRoutes = require("./routes/authRoutes");
@@ -22,9 +23,10 @@ const connectDB = async () => {
   }
 };
 
-// Format to json
+// middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cookieParser());
 
 // Use the routes
 app.use("/api/auth", authRoutes);
