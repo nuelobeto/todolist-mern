@@ -2,7 +2,7 @@
 const { Schema, model } = require("mongoose");
 
 // Create the model
-const ToDoSchema = new Schema(
+const TodoSchema = new Schema(
   {
     user: {
       type: Schema.Types.ObjectId,
@@ -25,7 +25,7 @@ const ToDoSchema = new Schema(
   }
 );
 
-const ToDo = model("ToDo", ToDoSchema);
+const ToDo = model("Todo", TodoSchema);
 
 // Export the model
 module.exports = ToDo;

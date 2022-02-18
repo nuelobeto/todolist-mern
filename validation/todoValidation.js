@@ -5,7 +5,7 @@ const Validator = require("validator");
 const isEmpty = require("./isEmpty");
 
 // validation function
-const validateToDoInput = (data) => {
+const validateTodoInput = (data) => {
   let errors = {};
 
   // check content field
@@ -21,4 +21,4 @@ const validateToDoInput = (data) => {
   };
 };
 
-module.exports = validateToDoInput;
+module.exports = validateTodoInput;
