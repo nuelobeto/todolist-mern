@@ -179,7 +179,7 @@ router.put("/:todoId/update", requiresAuth, async (req, res) => {
       return res.status(400).json(errors);
     }
 
-    // update the todo as content
+    // update the todo
     const updatedTodo = await Todo.findOneAndUpdate(
       {
         user: req.user._id,

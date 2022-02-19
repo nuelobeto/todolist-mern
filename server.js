@@ -2,6 +2,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 require("dotenv").config();
+const path = require("path");
 
 // Declare variables...
 const app = express();
@@ -32,6 +33,12 @@ app.use(cookieParser());
 // Use the routes
 app.use("/api/auth", authRoutes);
 app.use("/api/todos", todoRoutes);
+
+app.use(express.static(path.resolve(__dirname, "./client/build")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
 
 // Call the function to connect to mongoDB
 connectDB();
